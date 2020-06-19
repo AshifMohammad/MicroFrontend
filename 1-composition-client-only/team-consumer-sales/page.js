@@ -59,7 +59,7 @@ function renderPage() {
     <div id="options">${product.variants.map(renderOption).join("")}</div>
     <common-core-blue-buy id="buy" sku="${variant.sku}"></common-core-blue-buy>
     <sales-team-green-recommendation id="reco" sku="${variant.sku}"></sales-team-green-recommendation>
-     <h3 id="author">Need Help? Slack me - @AshifZafar</h3>
+     <h3 id="author">Isn't it funny app? Slack me - @AshifZafar</h3>
   `;
 }
 

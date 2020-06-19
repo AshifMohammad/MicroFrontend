@@ -31,7 +31,7 @@
         ${reco
           .map(
             id =>
-              `<img src="./team-green/images/reco_${id}.jpg" alt="Reco ${id}" />`
+              `<img src="./sales-team-green-recommendation/images/reco_${id}.jpg" alt="Reco ${id}" />`
           )
           .join("")}
       `;
