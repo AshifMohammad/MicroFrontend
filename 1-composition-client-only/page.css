@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 aside {
@@ -38,11 +38,11 @@ dd {
 @media only screen and (max-width: 999px) {
   #app {
     grid-template-areas:
-      'store basket'
-      'image name'
-      'image options'
-      'image buy'
-      'reco reco';
+      "store basket"
+      "image name"
+      "image options"
+      "image buy"
+      "reco reco";
     grid-template-columns: 4fr 3fr;
   }
 }
@@ -50,10 +50,10 @@ dd {
 @media only screen and (min-width: 1000px) {
   #app {
     grid-template-areas:
-      'store basket  reco'
-      'image name    reco'
-      'image options reco'
-      'image buy     reco';
+      "store basket  reco"
+      "image name    reco"
+      "image options reco"
+      "image buy     reco";
     grid-template-columns: 4fr 3fr 200px;
     width: 1000px;
   }
@@ -201,19 +201,19 @@ dd {
   width: 180px;
 }
 
-green-recos {
+sales-team-green-recommendation {
   display: block;
   outline: 3px dashed forestgreen;
   width: 100%;
 }
 
-blue-basket {
+common-core-blue-basket {
   display: block;
   outline: 3px dashed royalblue;
   padding: 5px;
 }
 
-blue-buy {
+common-core-blue-buy {
   display: block;
   outline: 3px dashed royalblue;
   padding: 5px;

@@ -11,7 +11,7 @@
     count: 0,
   };
 
-  class BlueBasket extends HTMLElement {
+  class CommonCoreBlueBasket extends HTMLElement {
     connectedCallback() {
       this.refresh = this.refresh.bind(this);
       this.log('connected');
@@ -37,13 +37,13 @@
     }
 
     log(...args) {
-      console.log('🛒 blue-basket', ...args);
+      console.log('🛒 common-core-blue-basket', ...args);
     }
   }
-  window.customElements.define('blue-basket', BlueBasket);
+  window.customElements.define('common-core-blue-basket', CommonCoreBlueBasket);
 
 
-  class BlueBuy extends HTMLElement {
+  class CommonCoreBuy extends HTMLElement {
     static get observedAttributes() {
       return ['sku'];
     }
@@ -82,8 +82,8 @@
     }
 
     log(...args) {
-      console.log('🔘 blue-buy', ...args);
+      console.log('🔘 common-core-blue-buy', ...args);
     }
   }
-  window.customElements.define('blue-buy', BlueBuy);
+  window.customElements.define('common-core-blue-buy', CommonCoreBuy);
 }());
