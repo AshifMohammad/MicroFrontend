@@ -2,19 +2,19 @@
 /* globals HTMLElement, window */
 (function fragments() {
   const recos = {
-    t_porsche: ["3", "5", "6"],
-    t_fendt: ["3", "6", "4"],
-    t_eicher: ["1", "8", "7"]
+    Vehicle: ["3", "5", "6"],
+    Customer: ["3", "6", "4"],
+    Services: ["1", "8", "7"]
   };
 
   class SalesTeamGreenRecommendation extends HTMLElement {
     static get observedAttributes() {
-      return ["sku"];
+      return ["suggestedModule"];
     }
 
     connectedCallback() {
-      const sku = this.getAttribute("sku");
-      this.log("connected", sku);
+      const suggestedModule = this.getAttribute("suggestedModule");
+      this.log("connected", suggestedModule);
       this.render();
     }
 
@@ -24,22 +24,23 @@
     }
 
     render() {
-      const sku = this.getAttribute("sku");
-      const reco = recos[sku] || [];
+      const suggestedModule = this.getAttribute("suggestedModule");
+      const reco = recos[suggestedModule] || [];
+      console.log(recos[suggestedModule])
       this.innerHTML = `
         <h3>Recommended Vehicle Component MFE</h3>
         ${reco
           .map(
             id =>
-              `<img src="./sales-team-green-recommendation/images/reco_${id}.jpg" alt="Reco ${id}" />`
+              `<img src="./team-common-core-suggested-components/images/reco_${id}.jpg" alt="Reco ${id}" />`
           )
           .join("")}
       `;
     }
 
     disconnectedCallback() {
-      const sku = this.getAttribute("sku");
-      this.log("disconnected", sku);
+      const suggestedModule = this.getAttribute("suggestedModule");
+      this.log("disconnected", suggestedModule);
     }
 
     log(...args) {

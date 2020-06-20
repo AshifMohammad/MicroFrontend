@@ -2,9 +2,9 @@
 /* globals HTMLElement, window, CustomEvent */
 (function fragments() {
   const prices = {
-    t_porsche: '66,00 €',
-    t_fendt: '54,00 €',
-    t_eicher: '58,00 €',
+    Vehicle: '66,00 €',
+    Customer: '54,00 €',
+    Services: '58,00 €',
   };
 
   const state = {
@@ -45,13 +45,13 @@
 
   class CommonCoreBuy extends HTMLElement {
     static get observedAttributes() {
-      return ['sku'];
+      return ['suggestedModule'];
     }
 
     connectedCallback() {
       this.addToCart = this.addToCart.bind(this);
-      const sku = this.getAttribute('sku');
-      this.log('connected', sku);
+      const suggestedModule = this.getAttribute('suggestedModule');
+      this.log('connected', suggestedModule);
       this.render();
       this.firstChild.addEventListener('click', this.addToCart);
     }
@@ -65,9 +65,9 @@
     }
 
     render() {
-      const sku = this.getAttribute('sku');
-      const price = prices[sku];
-      this.innerHTML = `<button type="button">buy for ${price}</button>`;
+      const suggestedModule = this.getAttribute('suggestedModule');
+      const price = prices[suggestedModule];
+      this.innerHTML = `<button type="button">Create a Deal at ${price}</button>`;
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -77,8 +77,8 @@
 
     disconnectedCallback() {
       this.firstChild.removeEventListener('click', this.addToCart);
-      const sku = this.getAttribute('sku');
-      this.log('disconnected', sku);
+      const suggestedModule = this.getAttribute('suggestedModule');
+      this.log('disconnected', suggestedModule);
     }
 
     log(...args) {

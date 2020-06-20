@@ -3,51 +3,54 @@
 const $app = document.getElementById("app");
 
 // data
-const product = {
-  name: "Tractor",
+const flexMFEs = {
+  name: "Flex Module",
   variants: [
     {
-      sku: "t_porsche",
+      suggestedModule: "Vehicle",
       color: "red",
-      name: "Porsche-Diesel Master 419",
-      image: "./team-consumer-sales/images/tractor-red.jpg",
-      thumb: "./team-consumer-sales/images/tractor-red-thumb.jpg",
-      price: "66,00 €"
+      name: "Vehicle",
+      image: "./team-consumer-sales/images/dealpage.jpg",
+      thumb: "./team-consumer-sales/images/dealTabIcon.jpg",
+      price: "66,00 USD"
     },
     {
-      sku: "t_fendt",
+      suggestedModule: "Customer",
       color: "green",
-      name: "Fendt F20 Dieselroß",
-      image: "./team-consumer-sales/images/tractor-green.jpg",
-      thumb: "./team-consumer-sales/images/tractor-green-thumb.jpg",
-      price: "54,00 €"
+      name: "Vehicle",
+      image: "./team-consumer-sales/images/VehiclePage.jpg",
+      thumb: "./team-consumer-sales/images/VehicleTabIcon.jpg",
+      price: "54,00 USD"
     },
     {
-      sku: "t_eicher",
+      suggestedModule: "Services",
       color: "blue",
-      name: "Eicher Diesel 215/16",
-      image: "./team-consumer-sales/images/tractor-blue.jpg",
-      thumb: "./team-consumer-sales/images/tractor-blue-thumb.jpg",
-      price: "58,00 €"
-    }
+      name: "Trade",
+      image: "./team-consumer-sales/images/tradeTab.jpg",
+      thumb: "./team-consumer-sales/images/TradeTabicon.jpg",
+      price: "58,00 USD"
+    },
+
   ]
 };
 
 const state = {
-  variant: "t_porsche"
+  variant: "Vehicle"
 };
 
 function renderOption(variant) {
-  const active = state.variant === variant.sku ? "active" : "";
+  const active = state.variant === variant.suggestedModule ? "active" : "";
   return `
-    <button class="${active}" type="button" data-sku="${variant.sku}">
+    <button class="${active}" type="button" data-sku="${variant.suggestedModule}">
       <img src="${variant.thumb}" alt="${variant.name}" />
+<!--        <label>${variant.thumb}</label>-->
+      <lable></lable>
     </button>
   `;
 }
 
 function renderPage() {
-  const variant = product.variants.find(v => state.variant === v.sku);
+  const variant = flexMFEs.variants.find(v => state.variant === v.suggestedModule);
   $app.innerHTML = `
     <h1 id="store">DriveFlex Sales</h1>
   
@@ -55,11 +58,13 @@ function renderPage() {
     <div id="image"><div><img src="${variant.image}" alt="${
     variant.name
   }" /></div></div>
-    <h2 id="name">${product.name} <small>${variant.name}</small></h2>
-    <div id="options">${product.variants.map(renderOption).join("")}</div>
-    <common-core-blue-buy id="buy" sku="${variant.sku}"></common-core-blue-buy>
-    <sales-team-green-recommendation id="reco" sku="${variant.sku}"></sales-team-green-recommendation>
-     <h3 id="author">Isn't it funny app? Slack me - @AshifZafar</h3>
+    <h2 id="name">${flexMFEs.name} <small>${variant.name}</small></h2>
+    <div id="options">${flexMFEs.variants.map(renderOption).join("")}</div>
+    <common-core-blue-buy id="buy" suggestedModule="${variant.suggestedModule}"></common-core-blue-buy>
+    <sales-team-green-recommendation id="reco" suggestedModule="${
+      variant.suggestedModule
+    }"></sales-team-green-recommendation>
+     <h3 id="author">Isn't it funny app?  tell me about it - Slack :  @AshifZafar</h3>
   `;
 }
 
@@ -90,4 +95,5 @@ function removeListeners() {
 }
 
 renderPage();
+// on change/ click detection
 addListeners();

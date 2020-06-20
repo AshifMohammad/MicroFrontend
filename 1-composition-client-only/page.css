@@ -31,7 +31,7 @@ dd {
   grid-row-gap: 10px;
   margin: 20px auto;
   min-width: 500px;
-  outline: 3px dashed orangered;
+  outline: 3px solid blue;
   padding: 15px;
 }
 
@@ -207,14 +207,14 @@ sales-team-green-recommendation {
   width: 100%;
 }
 
-common-core-blue-basket {
-  display: block;
-  outline: 3px dashed royalblue;
-  padding: 5px;
-}
+/*common-core-blue-basket {*/
+/*  display: block;*/
+/*  outline: 3px dashed royalblue;*/
+/*  padding: 5px;*/
+/*}*/
 
-common-core-blue-buy {
-  display: block;
-  outline: 3px dashed royalblue;
-  padding: 5px;
-}
+/*common-core-blue-buy {*/
+/*  display: block;*/
+/*  outline: 3px dashed royalblue;*/
+/*  padding: 5px;*/
+/*}*/
